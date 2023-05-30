@@ -1,0 +1,1613 @@
+﻿schema {
+  query: Query
+  mutation: Mutation
+  subscription: MySubscription
+}
+
+type MySubscription {
+  onDataRefreshedForBusiness(data: String!): RefreshDataForResponse @aws_subscribe(mutations:["refreshDataForBusiness"])
+}
+
+type AccountIntegration {
+  facebook: String
+}
+
+type AccountIntegrationsResponse {
+  data: AccountIntegration
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type ActivateBusinessResponse {
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type AdResponse {
+  ad_name: Ads
+  amount_spent: Int
+  campaign_name: String
+  clicks: Int
+  cost_per_purchase: Int
+  id: Int
+  purchases: Int
+  roas: String
+  sirge_ad_id: String
+  sirge_clicks: Int
+  sirge_cost_per_purchase: Int
+  sirge_purchases: Int
+  sirge_roas: String
+  sirge_total_conversion_value: Int
+  source_delivery_status: String
+  total_conversion_value: Int
+  total_title: String
+}
+
+type AdSet {
+  ad: String
+  ad_name: String
+  ad_set: String
+  ad_set_name: String
+  amount_spent: Int
+  clicks: Int
+  clicks_count: Int
+  conversion_value: Int
+  cost_per_purchase: Int
+  id: Int
+  purchases: Int
+  purchases_count: Int
+  roas: String
+  sirge_ad_id: String
+  sirge_adset_id: String
+  sirge_clicks: Int
+  sirge_cost_per_purchase: Int
+  sirge_purchases: Int
+  sirge_roas: Int
+  sirge_total_conversion_value: Int
+  source: String
+  source_delivery_status: String
+  total_conversion_value: Int
+  total_title: String
+}
+
+type Ads {
+  ad: String
+  ad_name: String
+  ad_set: String
+  ad_set_name: String
+  amount_spent: Int
+  clicks: Int
+  clicks_count: Int
+  conversion_value: Int
+  cost_per_purchase: Int
+  id: Int
+  purchases: Int
+  purchases_count: Int
+  roas: String
+  sirge_ad_id: String
+  sirge_adset_id: String
+  sirge_clicks: Int
+  sirge_cost_per_purchase: Int
+  sirge_purchases: Int
+  sirge_roas: Int
+  sirge_total_conversion_value: Int
+  source: String
+  source_delivery_status: String
+  total_conversion_value: Int
+  total_title: String
+}
+
+type ApplyPromoCodeResponse {
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type AuthenticateTikTokResponse {
+  error: ErrorResponse
+  message: String
+}
+
+type AutoScalingSettingResponse {
+  error: ErrorResponse
+  message: String
+}
+
+#   Types
+type Count {
+  fb_count: Int
+  tk_count: Int
+}
+
+type CampaignCount {
+  active_count: Count
+  paused_count: Count
+}
+
+type Business {
+  business_id: String!
+  business_name: String
+  created_at: String
+  external_platform: String
+  facebook_ad_account_currency: String
+  facebook_ad_account_id: String
+  facebook_ad_account_name: String
+  fb_pixel_id: String
+  logo: String
+  premium_page_views: Int
+  shopify_access_token: String
+  shopify_script_tag_id: String
+  shopify_store_url: String
+  status: String
+  tik_tok_ad_account_currency: String
+  tik_tok_ad_account_id: String
+  tik_tok_ad_account_name: String
+  tik_tok_ad_account_timezone: String
+  updated_at: String
+  user_id: String
+  vanity_name: String
+  script_installed: Boolean
+  campaign_count: CampaignCount
+  fb_utm_count: Int
+  tiktok_utm_count: Int
+}
+
+type BusinessActiveStatus {
+  active: Boolean
+}
+
+type BusinessConnection {
+  facebook_ad_account_id: String
+  facebook_ad_account_name: String
+  script_installed: Boolean
+  shopify_store: String
+  tik_tok_ad_account_id: String
+  tik_tok_ad_account_name: String
+}
+
+type BusinessPageViewPurchase {
+  purchase: PurchaseView
+}
+
+type BusinessVisitor {
+  external_customer_url: String
+  external_platform: String
+  first_visit: String
+  geolocation: VisitorGeolocation
+  page_views: [PageViewNum]
+  sources: [PageViewNum]
+  total_page_views: Int
+  total_purchases: String
+  total_spent: Int
+  total_spent_query: [PageView]
+  visitor_address: VisitorAddressParam
+  visitor_email: String
+  visitor_name: String
+  visitor_phone: String
+}
+
+type Businesses {
+  business_active_count: Int
+  business_count: Int
+  business_list: [Business]
+}
+
+type ChangePasswordResponse @aws_api_key {
+  error: ErrorResponse
+  message: String
+}
+
+type CreateBusinessResponse {
+  data: Business
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type CreateStaffAccountResponse {
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type DeactivateBusinessResponse {
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type DeleteBusinessesInputResponse {
+  data: Boolean
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type DeleteStaffAccountResponse {
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type EndTrialResponse {
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type ErrorResponse @aws_api_key @aws_cognito_user_pools {
+  code: String
+  message: String
+}
+
+type EventUsageResponse {
+  #    May need to be changed to data: [String]
+  error: ErrorResponse
+  labels: [String]
+  nextToken: String
+}
+
+type FacebookAdAccount {
+  id: String
+  currency: String
+  name: String
+}
+
+type FacebookAdAccountsResponse {
+  data: [FacebookAdAccount]
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GenerateUploadUrlResponse {
+  data: UploadUrlResponse
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GetAllBusinessAdsResponse {
+  data: [AdResponse]
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GetAllStaffAccountsResponse {
+  data: [User]
+  #    may need to be data: [User]
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GetBusinessAdSetResponse {
+  data: [AdSet]
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GetBusinessByVanityNameResponse {
+  data: Business
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GetBusinessConnectionsResponse {
+  data: BusinessConnection
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GetPurchasesByBusinessResponse {
+  data: [PageView]
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GetBusinessSourcesByIdResponse {
+  data: [PageView]
+  error: ErrorResponse
+  message: String
+  numberPages: Int
+}
+
+type GetBusinessTrackerStatusResponse {
+  data: BusinessActiveStatus
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GetBusinessVisitorResponse {
+  data: BusinessVisitor
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GetBusinessesInputResponse {
+  data: Business
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+#   Response
+type GetBusinessesResponse {
+  data: Businesses
+  error: ErrorResponse
+  message: String
+}
+
+type GetCreditTransactionReponse {
+  data: [TransactionObjectResponse]
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GetCurrentUserSessionsResponse {
+  data: [UserSession]
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GetEventUsageLogResponse {
+  data: PlatformSettings
+}
+
+type GetInvoicesResponse {
+  data: [InvoiceObject]
+}
+
+type GetPageViewInputResponse {
+  data: BusinessPageViewPurchase
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GetPlatformModeResponse @aws_api_key {
+  data: PlatformSettings
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GetSubscriptionResponse {
+  data: SubscriptionObject
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GetUsageResponse {
+  data: Usage
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GetUserResponse {
+  data: User
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type Invoice {
+  created_at: String
+  customer_id: String
+  id: String
+  invoice_body: String
+  status: String
+  updated_at: String
+}
+
+type InvoiceObject {
+  created: String
+  invoice_id: String
+  invoice_number: Int
+  invoice_pdf: String
+  status: String
+  total: String
+}
+
+type ItemQuantityObject {
+  limit: Int
+  quantity: Int
+}
+
+type Performance {
+  id: String
+  source: String
+  business_id: String
+  purchases_count: Int
+  clicks_count: Int
+  campaign_name: String
+  itemType: String
+  ad_image: String
+  ad_set: String
+  ad_set_name: String
+  ad: String
+  ad_name: String
+  sirge_ad_id: String
+  sirge_adset_id: String
+  sirge_campaign_id: String
+  total_title: String
+  source_delivery_status: String
+  clicks: Int
+  purchases: Int
+  roas: String
+  cost_per_purchase: Int
+  amount_spent: Int
+  conversion_value: Int
+  total_conversion_value: Int
+  sirge_clicks: Int
+  sirge_purchases: Int
+  sirge_roas: String
+  sirge_cost_per_purchase: Int
+  sirge_total_conversion_value: Int
+  created: String
+  updated_at: String
+}
+
+
+
+# Mutations
+#  Mutations
+type Mutation {
+  activateBusiness(activateBusinessInput: ActivateBusinessInput!): ActivateBusinessResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  applyPromoCode(applyPromoCodeInput: ApplyPromoCodeInput!): ApplyPromoCodeResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  authenticateTikTok(authenticateTikTokInput: AuthenticateTikTokInput!): AuthenticateTikTokResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  changePassword(changePasswordInput: ChangePasswordInput!): ChangePasswordResponse @aws_api_key
+  createBusiness(createBusinessInput: CreateBusinessInput!): CreateBusinessResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  createStaffAccount(createStaffAccountInput: CreateStaffAccountInput!): CreateStaffAccountResponse
+  deactivateBusiness(deactivateBusinessInput: DeactivateBusinessInput!): DeactivateBusinessResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  deleteBusinessByBusinessId(deleteBusinessesInput: DeleteBusinessesInput!): DeleteBusinessesInputResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  deleteStaffAccount(deleteStaffAccountInput: DeleteStaffAccountInput!): DeleteStaffAccountResponse
+  disconnectTikTok: disconnectTikTokResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  passwordResetLink(passwordResetInput: PasswordResetInput!): PasswordResetResponse @aws_api_key
+  payInvoice(payInvoiceInput: PayInvoiceInput!): PayInvoiceResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  registerUser(registerUserInput: RegisterUserInput!): RegisterUserResponse @aws_api_key
+  removeFacebookAdAccount(removeFacebookAdAccountInput: RemoveFacebookAdAccountInput!): RemoveFacebookAdAccountResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  removeFacebookUserAccess: RemoveFacebookAccessResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  setFacebookAdAccount(setFacebookAdAccountInput: SetFacebookAdAccountInput!): SetFacebookAdAccountResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  setFacebookUserAccess(facebookAccessInput: FacebookAccessInput!): SetFacebookAccessResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  subscribe(subscribeInput: SubscribeInput!): SubscribeResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  triggerBusinessDataLongFetch(triggerBusinessDataLongFetchInput: TriggerBusinessDataLongFetchInput): TriggerBusinessDataLongFetchResponse @aws_auth(cognito_groups: ["Admins", "Managers"])
+  updateBusinessByBusinessId(setBusinessesInput: SetBusinessesInput!): SetBusinessesInputResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  updateBusinessLogo(updateBusinessLogoInput: UpdateBusinessLogoInput!): UpdateBusinessLogoResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  updateFacebookAdStatus(updateFacebookAdStatusInput: UpdateFacebookAdStatusInput!): UpdateFacebookAdStatusResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  updateFacebookConnectionSettings(updateFacebookConnectionSettingsInput: UpdateFacebookConnectionSettingsInput!): UpdateFacebookConnectionSettingsResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  updateStaffAccountAccess(updateStaffAccountAccessInput: UpdateStaffAccountAccessInput!): UpdateStaffAccountAccessResponse
+  updateSubscriptionItemQuantity(updateSubscriptionItemQuantityInput: UpdateSubscriptionItemQuantityInput!): UpdateSubscriptionItemQuantityResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  updateSubscriptionPlan(updateSubscriptionPlanInput: UpdateSubscriptionPlanInput!): UpdateSubscriptionPlanResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  updateTimezoneCurrency(updateTimezoneCurrencyInput: UpdateTimezoneCurrencyInput!): UpdateTimezoneCurrencyResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  updateUser(updateUserInput: UpdateUserInput!): UpdateUserResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  updateUserProfilePicture(updateUserProfilePictureInput: UpdateUserProfilePictureInput!): UpdateUserProfilePictureResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  updateUserSubscriptionCard(updateUserSubscriptionCardInput: UpdateSubscriptionCardInput!): UpdateUserSubscriptionCardResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  verifyTwoFactor(verifyTwoFactorInput: VerifyTwoFactorInput!): VerifyTwoFactorResponse @aws_api_key
+  refreshDataForBusiness(refreshDataForBusinessInput: RefreshDataForBusiness!): RefreshDataForResponse @aws_iam
+  updateShopifyStoreUrl(updateShopifyStoreUrlInput: UpdateShopifyStoreUrlInput!): UpdateShopifyStoreUrlResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  setTiktokAdAccount(setTiktokAdAccountInput: SetTiktokAdAccountInput!): SetTiktokAdAccountResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  disconnectBusinessTiktok(disconnectBusinessTiktokInput: DisconnectBusinessTiktokInput!): DisconnectBusinessTiktokResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  updateMonthlyBudget(updateMonthlyBudgetInput: UpdateMonthlyBudgetInput!): UpdateMonthlyBudgetResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  updateRoasGoals(updateRoasGoalsInput: UpdateRoasGoalsInput!): UpdateRoasGoalsResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+
+}
+
+type PageView {
+  ad: String
+  ad_set: String
+  business_id: String
+  campaign: String
+  checkout_platform: String
+  conversion_value: String
+  created: String
+  currency: String
+  expiry_date: String
+  id: String
+  ip: String
+  order_id: String
+  purchase_id: String
+  referer: String
+  sirge_ad_id: String
+  sirge_adset_id: String
+  sirge_campaign_id: String
+  source: String
+  tracking_channel: String
+  url: String
+  clicks_count: Int
+  purchases_count: Int
+  visitor_addresscity: String
+  visitor_addresscountry: String
+  visitor_addressline1: String
+  visitor_addressline2: String
+  visitor_addresspostal_code: String
+  visitor_addressprovince: String
+  visitor_email: String
+  visitor_id: String
+  visitor_name: String
+  visitor_phone: String
+}
+
+type PageViewNum {
+  data: PageView
+  id: Int
+}
+
+type PasswordResetResponse @aws_api_key {
+  error: ErrorResponse
+  message: String
+}
+
+type PayInvoiceResponse {
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type Plan {
+  business_limit: Int
+  page_view_limit: Int
+  plan_code: String
+  plan_name: String
+  plan_price_id: String
+  plan_product_id: String
+  staff_limit: Int
+}
+
+type PlanInfo {
+  billing_scheme: String
+  details: Plan
+  price_id: String
+  quantity: String
+  unit_amount: String
+}
+
+type PlatformSettings  @aws_api_key{
+  closed_mode: Int
+  free_trial_page_view_limit: Int
+  maintenance_mode: Int
+}
+
+type Product {
+  plan_product_id: String
+  price_id: String
+  product_code: String
+  product_id: String
+  product_name: String
+}
+
+type PurchaseView {
+  first_touch_ad: String
+  first_touch_ad_set: String
+  first_touch_campaign: String
+  last_touch_ad: String
+  last_touch_ad_set: String
+  last_touch_campaign: String
+}
+
+#  Queries
+type Query {
+  autoScalingSetting: AutoScalingSettingResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  endTrial: EndTrialResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  generateUploadUrl(generateUploadUrlInput: GenerateUploadUrlInput!): GenerateUploadUrlResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getAccountIntegrations: AccountIntegrationsResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getAllBusinessAds(getAllBusinessAdsInput: GetAllBusinessAdsInput!): GetAllBusinessAdsResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getAllStaffAccounts: GetAllStaffAccountsResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  getBusinessAdSets(getBusinessAdSetInput: BusinessAdSetInput!): GetBusinessAdSetResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getBusinessByBusinessId(getBusinessesInput: GetBusinessesInput!): GetBusinessesInputResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getBusinessByVanityName(getBusinessByVanityNameInput: GetBusinessByVanityNameInput!): GetBusinessByVanityNameResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getBusinessSourcesById(getBusinessSourcesByIdInput: GetBusinessSourcesByIdInput!): GetBusinessSourcesByIdResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getBusinessTrackerStatus(getBusinessesInput: GetBusinessesInput!): GetBusinessTrackerStatusResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getBusinessVisitor(getBusinessesVisitorInput: GetBusinessesVisitorInput!): GetBusinessVisitorResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getAllVisitors(getAllVisitorsInput: GetAllVisitorsInput!): GetAllVisitorResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getAllVisitorsMongo(getAllVisitorsMongoInput: GetAllVisitorsMongoInput!): GetAllVisitorMongoResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getAllVisitorsGraph(getAllVisitorsGraphInput: getAllVisitorsGraphInput!): GetAllVisitorGraphResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getAllVisitorsGraphMongo(getAllVisitorsGraphMongoInput: getAllVisitorsGraphMongoInput!): GetAllVisitorGraphMongoResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getVisitorDetail(getVisitorDetailInput: getVisitorDetailInput!): GetVisitorDetailResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getVisitorDetailPageview(getVisitorDetailPageViewInput: getVisitorDetailPageViewInput!): GetVisitorDetailPageviewResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getVisitorDetailSources(getVisitorDetailSourcesInput: getVisitorDetailSourcesInput!): GetVisitorDetailSourcesResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getBusinessesByUserId: GetBusinessesResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getCreditTransactions: GetCreditTransactionReponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  getCurrentUserSessions: GetCurrentUserSessionsResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getFacebookAdAccounts: FacebookAdAccountsResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getInvoices: GetInvoicesResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  getPlatformMode: GetPlatformModeResponse @aws_api_key
+  getPurchaseByPageViewId(getPageViewInput: GetPageViewInput!): GetPageViewInputResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getStaffById(getStaffByIdInput: GetStaffByIdInput!): GetUserResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getSubscription: GetSubscriptionResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  getUsage: GetUsageResponse @aws_auth(cognito_groups : ["Admins", "Managers"])
+  getUser: GetUserResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getPerformanceDetails(getPerformanceDetailsInput: GetPerformanceDetailsInput): GetPerformanceDetailsResponse @aws_auth(cognito_groups: ["Admins", "Managers", "Staff"])
+  getBusinessConnections(getBusinessConnectionsInput: GetBusinessConnectionsInput!): GetBusinessConnectionsResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getBusinessAnalytics(getBusinessAnalyticsInput: GetBusinessAnalyticsInput!): GetBusinessAnalyticsResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getBusinessCampaigns(getBusinessCampaignsInput: GetBusinessCampaignsInput!): getBusinessCampaignsResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getPurchasesByBusiness(getPurchaseByBusinessInput: GetPurchaseByBusinessInput!): GetPurchasesByBusinessResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getUserTiktokAds(getUserTiktokAdsInput: GetUserTiktokAdsInput!): GetUserTiktokAdsResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+  getCurrentUserBusinessDetails(getCurrentUserBusinessDetailsInput: GetCurrentUserBusinessDetailsInput!): GetCurrentUserBusinessDetailsResponse @aws_auth(cognito_groups : ["Admins", "Managers", "Staff"])
+}
+
+
+type RegisterUserResponse @aws_api_key {
+  error: ErrorResponse
+  message: String
+  nextToken: String
+  user: User
+}
+
+type RemoveFacebookAccessResponse {
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type RemoveFacebookAdAccountResponse {
+  error: ErrorResponse
+  message: String
+}
+
+type SetBusinessesInputResponse {
+  data: Business
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type SetFacebookAccessResponse {
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type SetFacebookAdAccountResponse {
+  error: ErrorResponse
+  message: String
+}
+
+type SubscribeResponse {
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type TriggerBusinessDataLongFetchResponse {
+  error: ErrorResponse
+  message: String
+}
+
+type Subscription {
+  created_at: String
+  customer_id: String
+  id: String
+  status: String
+  subscription_body: String
+  updated_at: String
+  trial_end: String
+}
+
+type SubscriptionObject {
+  billing_cycle_anchor: String
+  current_billing_period_end: String
+  current_billing_period_start: String
+  plan: PlanInfo
+  status: String
+  subscription_id: String
+  trial_end: String
+  trial_start: String
+}
+
+type TransactionObjectResponse {
+  amount: Int
+  created: Int
+  ending_balance: Int
+  id: String
+  type: String
+}
+
+type UpdateBusinessLogoResponse {
+  data: Business
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type UpdateFacebookAdStatusResponse {
+  data: Boolean
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type UpdateFacebookConnectionSettingsResponse {
+  error: ErrorResponse
+  message: String
+}
+
+type UpdateStaffAccountAccessResponse {
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type UpdateSubscriptionItemQuantityResponse {
+  data: ItemQuantityObject
+}
+
+type UpdateSubscriptionPlanResponse {
+  data: User
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type UpdateTimezoneCurrencyResponse {
+  error: ErrorResponse
+  message: String
+}
+
+type UpdateUserProfilePictureResponse {
+  data: User
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type UpdateUserResponse {
+  data: User
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type UpdateUserSubscriptionCardResponse {
+  error: ErrorResponse
+  message: String
+}
+
+type UploadUrlResponse {
+  upload_url: String
+  url: String
+}
+
+type AllBusinessVisitor {
+  clicks_count: String
+  conversion_value: String
+  date: String
+  last_visited: String
+  purchases_count: String
+  referer: String
+  source: String
+  visitor_id: String
+  visitor_name: String
+}
+
+type GetAllVisitorResponse {
+  data: [AllBusinessVisitor]
+  totalRecords: Int
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type GetAllVisitorMongoResponse {
+  data: [AllBusinessVisitor]
+  totalRecords: Int
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type AllBusinessVisitorGraph {
+  date: String
+  new_visitors: String
+  returning_visitors: String
+  
+}
+
+type GetAllVisitorGraphResponse {
+  data: [AllBusinessVisitorGraph]
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type AllBusinessVisitorGraphMongo {
+  date: String
+  new_visitors: String
+  returning_visitors: String
+  category: String
+}
+
+type GetAllVisitorGraphMongoResponse {
+  data: [AllBusinessVisitorGraphMongo]
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type VisitorDetail {
+  visitor_email: String
+  country: String
+  state: String
+  city: String
+  total_pageviews: String
+  first_visit: String
+  total_purchases: String
+  total_purchase_conversion_value: String
+}
+
+type GetVisitorDetailResponse {
+  data: VisitorDetail
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type VisitorDetailPageview {
+  ad: String
+  ad_set: String
+  business_id: String
+  campaign: String
+  checkout_platform: String
+  conversion_value: String
+  created: String
+  currency: String
+  expiry_date: String
+  id: String
+  ip: String
+  order_id: String
+  purchase_id: String
+  referer: String
+  sirge_ad_id: String
+  sirge_adset_id: String
+  sirge_campaign_id: String
+  source: String
+  tracking_channel: String
+  url: String
+  clicks_count: Int
+  purchases_count: Int
+  visitor_addresscity: String
+  visitor_addresscountry: String
+  visitor_addressline1: String
+  visitor_addressline2: String
+  visitor_addresspostal_code: String
+  visitor_addressprovince: String
+  visitor_email: String
+  visitor_id: String
+  visitor_name: String
+  visitor_phone: String
+  total_records: String
+}
+
+type GetVisitorDetailPageviewResponse {
+  data: [VisitorDetailPageview]
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type VisitorDetailSource {
+  sirge_source_name: String
+  url: String
+  total_records: String
+}
+
+type GetVisitorDetailSourcesResponse {
+  data: [VisitorDetailSource]
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+
+type Usage {
+  total_usage: Int
+}
+
+type User {
+  account_state: String
+  affiliate_auth_token: String
+  auto_scaling_setting: Int
+  balance: Int
+  cancellation_reason: String
+  card_expiry_date: String
+  card_last_four_digits: String
+  card_type: String
+  city: String
+  client_billing_account_id: String
+  country_code: String
+  country_name: String
+  country_phone_prefix: String
+  created_at: String
+  currency: String
+  current_billing_period_end: Int
+  current_billing_period_start: Int
+  data_deleting_on: Int
+  data_retention_period: Int
+  email: String
+  end_trial_source: String
+  facebook_accessToken: String
+  facebook_userID: String
+  first_name: String
+  firstpromoter_auth_token: String
+  full_address: String
+  id: String
+  invoices: [Invoice]
+  last_name: String
+  line1: String
+  manager_id: String
+  marketing_status: Int
+  phone_number: String
+  postal_code: String
+  products: Product
+  profile_photo: String
+  state: String
+  status: String
+  stripe_connect_account_id: String
+  subscription: Subscription
+  subscription_status: String
+  tik_tok_access_token: String
+  tik_tok_integration: Boolean
+  timezone: String
+  two_factor_deactivate_business: Int
+  two_factor_remove_staff_account: Int
+  updated_at: String
+  user_id: String
+  user_plan: Plan
+  verification_method: String
+  shopify_store_url: String
+  business_access: [BusinessAccess]
+  sessions: [UserSession]
+}
+
+type BusinessAccess {
+  vanity_name: String
+}
+
+type UserSession {
+  browser_name: String
+  browser_version: String
+  created_at: String
+  ip: String
+  location: String
+  os_name: String
+  os_version: String
+  user_id: String
+}
+
+type VerifyTwoFactorResponse @aws_api_key {
+  data: Boolean
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type RefreshDataForResponse @aws_iam {
+  data: String
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type VisitorAddressParam {
+  city: String
+  country: String
+  line1: String
+  province: String
+}
+
+type VisitorGeolocation {
+  city: String
+  country: String
+  lat: String
+  long: String
+  province: String
+}
+
+type disconnectTikTokResponse {
+  error: ErrorResponse
+  message: String
+}
+
+input ActivateBusinessInput {
+  business_id: String!
+}
+
+input ApplyPromoCodeInput {
+  code: String!
+}
+
+input AuthenticateTikTokInput {
+  auth_code: String!
+}
+
+input BusinessAdSetInput {
+  business_id: String!
+  date_from: String
+  date_to: String
+  selected_campaigns: [Int]
+  source: String!
+}
+
+input ChangePasswordInput {
+  password: String!
+  two_factor_id: String!
+}
+
+input CreateBusinessInput {
+  business_name: String!
+}
+
+input CreateStaffAccountInput {
+  email: String!
+  first_name: String!
+  last_name: String!
+  password: String!
+}
+
+input DeactivateBusinessInput {
+  business_id: String!
+}
+
+input DeleteBusinessesInput {
+  business_id: String!
+  two_factor_code: String
+}
+
+input DeleteStaffAccountInput {
+  staff_id: String!
+}
+
+input FacebookAccessInput {
+  facebook_accessToken: String
+  facebook_userID: String
+}
+
+input GenerateUploadUrlInput {
+  business_id: String
+  content_type: String!
+  extension_type: String!
+}
+
+input GetAllBusinessAdsInput {
+  date_from: String!
+  date_to: String!
+  id: String!
+  selected_ad_sets: [String]
+  selected_campaigns: [String]
+  source: String!
+}
+
+input GetBusinessByVanityNameInput {
+  vanity_name: String!
+}
+
+input GetBusinessConnectionsInput {
+  business_id: String
+}
+
+input SourcesSortObjectType {
+  sort: String
+  field: String
+}
+
+input GetBusinessSourcesByIdInput {
+  business_id: String!
+  date_from: String
+  date_to: String
+  sort: SourcesSortObjectType
+  numberOfPage: Int
+}
+
+#   Inputs
+input GetBusinessesInput {
+  business_id: String!
+  nextToken: String
+}
+
+input GetBusinessesVisitorInput {
+  business_id: String!
+  nextToken: String
+  visitor_id: String!
+}
+
+input SortObjectInput {
+  sort: String!
+  field: String!
+}
+
+input FilterObjectType {
+  field: String!
+  operator: String!
+  value: String
+}
+
+input GetAllVisitorsInput {
+  business_id: String!
+  date_from: String!
+  date_to: String!
+  page: Int!
+  number_of_records: Int!
+  sort: SortObjectInput!
+  filter: [FilterObjectType]!
+}
+
+input GetAllVisitorsMongoInput {
+  business_id: String!
+  date_from: String!
+  date_to: String!
+  page: Int!
+  number_of_records: Int!
+  sort: SortObjectInput!
+  filter: [FilterObjectType]!
+}
+
+input getAllVisitorsGraphInput {
+  business_id: String!
+  date_from: String!
+  date_to: String!
+}
+
+input getAllVisitorsGraphMongoInput {
+  business_id: String!
+}
+
+input getVisitorDetailInput {
+  business_id: String!
+  visitor_id: String!
+}
+
+input getVisitorDetailPageViewInput {
+  business_id: String!
+  visitor_id: String!
+  page: Int!
+}
+
+input getVisitorDetailSourcesInput {
+  business_id: String!
+  visitor_id: String!
+  page: Int!
+}
+
+input GetPageViewInput {
+  business_id: String!
+  nextToken: String
+  pageview_id: String!
+}
+
+input PasswordResetInput {
+  email: String!
+}
+
+input PayInvoiceInput {
+  invoice_id: String!
+}
+
+input RegisterUserInput {
+  email: String!
+  first_name: String!
+  last_name: String!
+  password: String!
+  shopify_store_url: String!
+}
+
+input RemoveFacebookAdAccountInput {
+  business_id: String!
+}
+
+input SetBusinessesInput {
+  business_id: String!
+  business_name: String
+}
+
+input GetStaffByIdInput {
+  staff_id: String!
+}
+
+input SetFacebookAdAccountInput {
+  business_id: String!
+  facebook_ad_account_currency: String!
+  facebook_ad_account_id: String!
+  facebook_ad_account_name: String!
+}
+
+input SubscribeInput {
+  plan_code: String!
+}
+
+input TriggerBusinessDataLongFetchInput {
+  business_id: String!
+}
+
+input UpdateBusinessLogoInput {
+  business_id: String!
+  file_url: String!
+}
+
+input UpdateFacebookAdStatusInput {
+  adId: String!
+  status: String!
+}
+
+input UpdateFacebookConnectionSettingsInput {
+  business_id: String!
+  fb_pixel_id: Int!
+}
+
+input UpdateStaffAccountAccessInput {
+  staff_id: String!
+  vanity_name: String!
+}
+
+input UpdateSubscriptionCardInput {
+  card_cvc: String!
+  card_expiry_date: String!
+  card_last_four_digits: String!
+  card_number: String!
+  card_type: String!
+  payment_method: String
+}
+
+input UpdateSubscriptionItemQuantityInput {
+  option: Int
+  subscription_id: String!
+  subscription_item_id: String!
+}
+
+input UpdateSubscriptionPlanInput {
+  to_plan_code: String!
+}
+
+input UpdateTimezoneCurrencyInput {
+  currency: String!
+  timezone: String!
+}
+
+input UpdateUserInput {
+  first_name: String
+  full_address: String
+  last_name: String
+  postal_code: String
+  street_name: String
+  street_number: String
+}
+
+input UpdateUserProfilePictureInput {
+  file_url: String!
+}
+
+input VerifyTwoFactorInput {
+  two_factor_id: String
+}
+
+input RefreshDataForBusiness {
+  business_id: String
+}
+
+input GetPerformanceDetailsInput {
+  business_id: String!
+  itemType:String
+  source: String
+  selected_campaigns: [String]
+  selected_ad_sets: [String]
+  sort: PerformanceSortObjectType
+  filterCondition: FilterConditionType
+  numberOfPage: Int
+  dateStart: String
+  dateEnd: String
+}
+
+input PerformanceSortObjectType {
+  sort: Boolean
+  field: String
+}
+
+input FilterConditionType  {
+  Condition: [filterConditionArg]
+  filterStatus: Boolean
+  activeChecked: Boolean
+  roasToggle: Int
+}
+
+input filterConditionArg  {
+  column: String
+  operator: String
+  columnValue: String
+  logicalOperator: String
+}
+
+type GetPerformanceDetailsResponse {
+  data: [Performance]
+  error: ErrorResponse
+  message: String
+  nextToken: String
+  numberPages: Int
+}
+
+type PerformanceSummary {
+  amount_spent: Int
+  clicks: Int
+  purchases: Int
+  cost_per_purchase: Int
+  total_conversion_value: Int
+  roas: String
+  ft_clicks: Int
+  ft_purchases: Int
+  ft_cost_per_purchase: Int
+  ft_total_conversion_value: Int
+  ft_roas: String
+}
+
+input GetPurchaseByBusinessInput {
+  business_id: String!
+  date_from:  String!
+  date_to: String!
+  source: String!
+  typePurchases: String!
+  selecte_ids: [Int]!
+}
+
+input UpdateShopifyStoreUrlInput {
+  business_id: String!
+  shopify_url: String!
+}
+
+type UpdateShopifyStoreUrlResponse {
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+input GetBusinessAnalyticsInput {
+  business_id: String!
+}
+
+type AllAmount {
+  amount: Float
+  percentage: Float
+  date: String
+}
+
+type ConversationRateDetail {
+  source: String
+  percentage: Float
+}
+
+type ConversationRate {
+  daily: [ConversationRateDetail]
+  weekly: [ConversationRateDetail]
+  monthly: [ConversationRateDetail]
+}
+
+type SourceClicks {
+  total_visits: Int
+  daily: [ConversationRateDetail]
+  weekly: [ConversationRateDetail]
+  monthly: [ConversationRateDetail]
+}
+
+type PerformanceDetail {
+  all_amounts: [AllAmount]
+  daily_amount: Float
+  weekly_amount: Float
+  monthly_amount: Float
+  daily_percentage: Float
+  weekly_percentage: Float
+  monthly_percentage: Float
+}
+
+type BestPerformingDetail {
+  name: String
+  source: String
+  status: String
+  total_amount_spent: Int
+  roas: Float
+  purchases: Float
+  ad_images: [String]
+  impact: Float
+}
+
+type BestPerformingObject {
+  daily: BestPerformingDetail
+  weekly: BestPerformingDetail
+  monthly: BestPerformingDetail
+}
+
+type RoasGoalsInnerDetailCompare {
+	percentage: Float
+	amount: Float
+}
+
+type RoasGoalInnerDetail {
+	over: RoasGoalsInnerDetailCompare
+	under: RoasGoalsInnerDetailCompare
+}
+
+type RoasGoalObjectDetail {
+  source: String
+	daily: RoasGoalInnerDetail
+	weekly: RoasGoalInnerDetail
+	monthly: RoasGoalInnerDetail
+}
+
+type RoasGoalObject {
+	goal: Float
+	value: [RoasGoalObjectDetail]
+}
+
+type RoasGoals {
+	campaigns: RoasGoalObject
+	adsets: RoasGoalObject
+	ads: RoasGoalObject
+}
+
+
+type PerformingProductsObject {
+  product_id: String
+  name: String
+  totalPrice: Float
+  ordersCount: Float
+}
+
+type PerformanceData {
+  source: String
+  amount_spent: PerformanceDetail
+  total_sales: PerformanceDetail
+  average_order_value: PerformanceDetail
+  total_conversion_value: PerformanceDetail
+  conversion_rate: PerformanceDetail
+  cost_per_purchase: PerformanceDetail
+  blended_roas: PerformanceDetail
+  roas: PerformanceDetail
+  visits: PerformanceDetail
+  purchases: PerformanceDetail
+  ad_clicks: PerformanceDetail
+  page_views: [AllAmount]
+}
+
+type PerformingProducts {
+  daily: [PerformingProductsObject]
+  weekly: [PerformingProductsObject]
+  monthly: [PerformingProductsObject]
+}
+
+type BestPerforming {
+  campaigns: BestPerformingObject
+  adsets: BestPerformingObject
+  ads: BestPerformingObject
+}
+
+type MonthlyBudget {
+  total: Float
+  facebook: Float
+  tiktok: Float
+  amount_left: Float
+}
+
+type Analytics  {
+  id: String
+  business_id: String
+  analytic_id: String
+  performance: [PerformanceData]
+  performing_product: PerformingProducts
+  best_performing: BestPerforming
+  monthly_budget: MonthlyBudget
+  roas_goals: RoasGoals
+  record_date: String
+}
+
+type GetBusinessAnalyticsResponse {
+  data: Analytics
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+input GetBusinessCampaignsInput {
+  business_id: String!
+  date_from: String!
+  date_to: String!
+  source: String!
+  selected_campaigns: [String]!
+}
+
+type getBusinessCampaignsResponse {
+  data: [Analytics]
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+type TiktokAds {
+  advertiser_id: String
+  advertiser_name: String
+}
+
+input GetUserTiktokAdsInput {
+  tik_tok_access_token: String!
+}
+
+type GetUserTiktokAdsResponse {
+  data: [TiktokAds]
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+input SetTiktokAdAccountInput {
+  business_id: String
+  tik_tok_ad_account_id: String
+  tik_tok_ad_account_name: String
+}
+
+type SetTiktokAdAccountResponse {
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+input DisconnectBusinessTiktokInput {
+  business_id: String!
+}
+
+type DisconnectBusinessTiktokResponse {
+  data: Business
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+input UpdateMonthlyBudgetInput {
+  analytic_id: String!,
+  amount: Int!,
+}
+
+type UpdateMonthlyBudgetResponse {
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+
+input UpdateRoasGoalsInput {
+  analytic_id: String!,
+  campaigns: Float,
+  ads: Float,
+  adsets: Float,
+}
+
+type UpdateRoasGoalsResponse {
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}
+
+
+type CurrentUserBusinessDetails {
+  business: Business
+  businesses: Businesses
+  status: BusinessActiveStatus
+}
+
+input GetCurrentUserBusinessDetailsInput {
+  vanity_name: String
+}
+
+type GetCurrentUserBusinessDetailsResponse {
+  data: CurrentUserBusinessDetails
+  error: ErrorResponse
+  message: String
+  nextToken: String
+}

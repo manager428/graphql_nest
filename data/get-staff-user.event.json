@@ -1,0 +1,28 @@
+{
+  "arguments": {},
+  "identity": {
+    "claims": {
+      "manager_id": "621efa1c-ce89-4a4b-af72-07895c9bfcb1"
+    },
+    "defaultAuthStrategy": "ALLOW",
+    "groups": ["Staff"],
+    "issuer": "https://cognito-idp.us-west-2.amazonaws.com/us-west-2_Xqqdp7AK4",
+    "sourceIp": ["73.76.115.135"],
+    "sub": "ba2cc821-f15e-4a29-bfb0-e471e6e717b9",
+    "username": "ba2cc821-f15e-4a29-bfb0-e471e6e717b9"
+  },
+  "source": null,
+  "request": {
+    "headers": {},
+    "domainName": null
+  },
+  "prev": null,
+  "info": {
+    "selectionSetList": ["message"],
+    "selectionSetGraphQL": "{\n  message\n}",
+    "fieldName": "getUser",
+    "parentTypeName": "Query",
+    "variables": {}
+  },
+  "stash": {}
+}

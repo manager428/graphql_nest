@@ -1,0 +1,36 @@
+{
+  "arguments": {
+    "registerUserInput": {
+      "email": "andreas+manager@sirge.io",
+      "password": "2wsxzaq1",
+      "card_expiry_date": "8/2023",
+      "card_last_four_digits": "4242",
+      "card_type": "visa",
+      "city": "Cupertino",
+      "country_code": "US",
+      "country_name": "US",
+      "first_name": "Andreas",
+      "full_address": "3701 Alness Street",
+      "last_name": "Beasley",
+      "line1": "1 Apple Park Way",
+      "payment_method": "pm_1MLuIWBWXgc6iQOCXZ1uw9hm",
+      "plan_code": "bolt_pro_2_annually",
+      "postal_code": "95014",
+      "state": "California"
+    }
+  },
+  "identity": {},
+  "source": null,
+  "request": {
+    "headers": {},
+    "domainName": null
+  },
+  "prev": null,
+  "info": {
+    "selectionSetList": ["message"],
+    "fieldName": "registerUser",
+    "parentTypeName": "Mutation",
+    "variables": {}
+  },
+  "stash": {}
+}

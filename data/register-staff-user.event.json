@@ -1,0 +1,31 @@
+{
+  "arguments": {
+    "registerUserInput": {
+      "email": "andreas+staff@sirge.io",
+      "password": "2wsxzaq1",
+      "city": "Cupertino",
+      "country_code": "US",
+      "country_name": "US",
+      "first_name": "Andreas",
+      "full_address": "3701 Alness Street",
+      "last_name": "Beasley",
+      "line1": "1 Apple Park Way",
+      "postal_code": "95014",
+      "state": "California"
+    }
+  },
+  "identity": {},
+  "source": null,
+  "request": {
+    "headers": {},
+    "domainName": null
+  },
+  "prev": null,
+  "info": {
+    "selectionSetList": ["message"],
+    "fieldName": "registerUser",
+    "parentTypeName": "Mutation",
+    "variables": {}
+  },
+  "stash": {}
+}

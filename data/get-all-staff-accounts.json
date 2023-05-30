@@ -1,0 +1,32 @@
+{
+  "arguments": {},
+  "identity": {
+    "claims": {
+      "sub": "621efa1c-ce89-4a4b-af72-07895c9bfcb1",
+      "email_verified": true,
+      "iss": "https://cognito-idp.us-west-2.amazonaws.com/us-west-2_Xqqdp7AK4",
+      "cognito:username": "621efa1c-ce89-4a4b-af72-07895c9bfcb1",
+      "email": "andreas@sirge.io"
+    },
+    "defaultAuthStrategy": "ALLOW",
+    "groups": ["Managers"],
+    "issuer": "https://cognito-idp.us-west-2.amazonaws.com/us-west-2_Xqqdp7AK4",
+    "sourceIp": ["73.76.115.135"],
+    "sub": "621efa1c-ce89-4a4b-af72-07895c9bfcb1",
+    "username": "621efa1c-ce89-4a4b-af72-07895c9bfcb1"
+  },
+  "source": null,
+  "request": {
+    "headers": {},
+    "domainName": null
+  },
+  "prev": null,
+  "info": {
+    "selectionSetList": ["message"],
+    "selectionSetGraphQL": "{\n  message\n}",
+    "fieldName": "Query",
+    "parentTypeName": "getAllStaffAccounts",
+    "variables": {}
+  },
+  "stash": {}
+}

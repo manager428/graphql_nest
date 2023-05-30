@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "strict": true,
+    "preserveConstEnums": true,
+    "noEmit": true,
+    "sourceMap": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["ES2017", "DOM"],
+    "types": ["node", "jest"]
+  },
+  "moduleDirectories": ["node_modules"],
+  "exclude": [
+    "cdk.out",
+    "node_modules/*",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "test/__support/**/*.ts",
+    "jest.config.js",
+    "tests",
+    "./node_modules",
+    "./node_modules/*",
+    "./node_modules/@types/node/index.d.ts",
+    "./node_modules/@types/babel__traverse/index.d.ts",
+    "node_modules/@types/*"
+  ]
+}

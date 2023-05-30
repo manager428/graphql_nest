@@ -1,0 +1,68 @@
+{
+  "arguments": {
+    "getBusinessesInput": {
+      "business_id": "a0c49a13-c3fe-4ea8-bd72-8baec600be1e"
+    }
+  },
+  "identity": null,
+  "source": null,
+  "request": {
+    "headers": {
+      "x-forwarded-for": "71.222.10.32, 130.176.213.247",
+      "sec-ch-ua-mobile": "?0",
+      "cloudfront-viewer-country": "US",
+      "cloudfront-is-tablet-viewer": "false",
+      "x-amzn-requestid": "5ff42588-ee6a-4846-a571-76adf6bc901a",
+      "via": "2.0 510cbc3ed47e5ac404ea7e8b15d44868.cloudfront.net (CloudFront)",
+      "cloudfront-forwarded-proto": "https",
+      "origin": "https://us-west-2.console.aws.amazon.com",
+      "content-length": "513",
+      "x-forwarded-proto": "https",
+      "accept-language": "en-US,en;q=0.9",
+      "host": "jho5f5dbtva2jc3b46xscn5msm.appsync-api.us-west-2.amazonaws.com",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+      "cloudfront-is-mobile-viewer": "false",
+      "accept": "application/json, text/plain, */*",
+      "cloudfront-viewer-asn": "209",
+      "cloudfront-is-smarttv-viewer": "false",
+      "accept-encoding": "gzip, deflate, br",
+      "referer": "https://us-west-2.console.aws.amazon.com/",
+      "content-type": "application/json",
+      "sec-fetch-mode": "cors",
+      "x-amzn-trace-id": "Root=1-63a549a0-6754399d6241a1e76f333bb4",
+      "x-amz-cf-id": "jfY9EvcG534_w8m41-L7KhaCCI0hh7llq1u-O6edF4KblA5avW750g==",
+      "sec-fetch-dest": "empty",
+      "x-amz-user-agent": "AWS-Console-AppSync/",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "cloudfront-is-desktop-viewer": "true",
+      "sec-fetch-site": "cross-site",
+      "sec-ch-ua": "\"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"108\", \"Google Chrome\";v=\"108\"",
+      "x-forwarded-port": "443"
+    },
+    "domainName": null
+  },
+  "prev": null,
+  "info": {
+    "selectionSetList": [
+      "nextToken",
+      "data",
+      "data/user_id",
+      "data/status",
+      "data/created_at",
+      "data/premium_page_views",
+      "data/shopify_access_token",
+      "data/shopify_store_url",
+      "data/shopify_script_tag_id",
+      "data/tik_tok_ad_account_currency",
+      "data/tik_tok_ad_account_name",
+      "data/tik_tok_ad_account_id",
+      "data/tik_tok_ad_account_timezone",
+      "data/updated_at"
+    ],
+    "selectionSetGraphQL": "{\n  nextToken\n  data {\n    user_id\n    status\n    created_at\n    premium_page_views\n    shopify_access_token\n    shopify_store_url\n    shopify_script_tag_id\n    tik_tok_ad_account_currency\n    tik_tok_ad_account_name\n    tik_tok_ad_account_id\n    tik_tok_ad_account_timezone\n    updated_at\n  }\n}",
+    "fieldName": "getBusinesses",
+    "parentTypeName": "Query",
+    "variables": {}
+  },
+  "stash": {}
+}

@@ -1,0 +1,22 @@
+*.js
+!jest.config.js
+!.eslintrc.js
+!README.md
+node_modules
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+*.zip
+.env
+.env.prod
+.env.dev
+.aws/
+
+coverage/
+
+dist/
+nodejs/
+
+.npmrc

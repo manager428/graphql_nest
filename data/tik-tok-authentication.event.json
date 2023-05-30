@@ -1,0 +1,36 @@
+{
+    "arguments": {
+        "auth_code": "EAACBw7i5ZAF0BAJNDD5KtpHF8Hc0iLTSA9TvqAlJhKZC1hcZCUFuMWNwU"
+    },
+    "identity": {
+      "claims": {
+        "manager_id": "dee37734-bce3-448a-9ab0-130046ccc4d6"
+      },
+      "sub": "6daadd85-784c-45d6-a724-87dcbe43930b",
+      "groups": [
+        "Staff"
+      ],
+      "issuer": "",
+      "username": "",
+      "sourceIp": [],
+      "defaultAuthStrategy": ""
+    },
+    "source": null,
+    "request": {
+      "headers": {
+        "x-api-key": ""
+      },
+      "domainName": null
+    },
+    "prev": null,
+    "info": {
+      "selectionSetList": [
+      ],
+      "selectionSetGraphQL": "",
+      "fieldName": "tikTokAuthentication",
+      "parentTypeName": "Mutation",
+      "variables": {}
+    },
+    "stash": {}
+  }
+  
